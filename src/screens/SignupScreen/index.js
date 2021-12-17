@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {Logo} from '../../assets';
 import {Button, InputField, Space} from '../../components';
 
@@ -15,7 +16,8 @@ const SignupScreen = ({navigation}) => {
       }}>
       <KeyboardAwareScrollView showsVerticalScrollIndicator={false}>
         <View style={{flex: 1, alignItems: 'center'}}>
-          <Logo />
+          <Icon name="account-plus-outline" size={70} color="#F75306" />
+          <Space height={12} />
           <Text
             style={{
               fontFamily: 'Poppins-Medium',

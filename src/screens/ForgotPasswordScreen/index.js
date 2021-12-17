@@ -1,5 +1,8 @@
 import React from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {icGoogle, Logo} from '../../assets';
 import {Button, InputField, Space} from '../../components';
 
 const ForgotPasswordScreen = ({navigation}) => {
@@ -11,61 +14,50 @@ const ForgotPasswordScreen = ({navigation}) => {
         paddingHorizontal: 20,
         paddingVertical: 70,
       }}>
-      <View style={{flex: 0.5, marginBottom: 24}}>
-        <Text
-          style={{fontSize: 22, fontFamily: 'Poppins-Medium', color: '#000'}}>
-          FORGOT PASSWORD
-        </Text>
-        <Text style={{fontSize: 14, fontFamily: 'Poppins-Regular'}}>
-          Enter your email or phone number to request a password reset
-        </Text>
-      </View>
-      <View
-        style={{
-          flex: 1,
-          backgroundColor: '#FFF',
-          padding: 6,
-          borderRadius: 20,
-        }}>
-        <InputField placeholder="name@app.com" />
-        <Space height={14} />
-
-        <View
-          style={{
-            flex: 1,
-            marginTop: 8,
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-          }}></View>
-        <View style={{flex: 2}}>
-          <Button labelBtn="SEND NOW" onPress={() => {}} btnColor="#F26522" />
-        </View>
-      </View>
-      <View style={{flex: 1.5, marginTop: 30}}>
-        <View
-          style={{
-            flex: 1,
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}>
-          <Text style={{fontFamily: 'Poppins-Regular'}}>Having Problem ?</Text>
-          <TouchableOpacity
-            onPress={() => {
-              navigation.navigate('SigninScreen');
+      <KeyboardAwareScrollView showsVerticalScrollIndicator={false}>
+        <View style={{flex: 1, alignItems: 'center'}}>
+          <Icon name="lock" size={80} color="#F75306" />
+          <Space height={18} />
+          <Text
+            style={{
+              fontFamily: 'Poppins-Medium',
+              color: '#000',
+              fontSize: 20,
+              fontWeight: 'bold',
             }}>
-            <Text
-              style={{
-                fontFamily: 'Poppins-Regular',
-                fontSize: 16,
-                color: '#F26522',
-              }}>
-              {' '}
-              Need Help
-            </Text>
-          </TouchableOpacity>
+            FORGOT PASSWORD
+          </Text>
         </View>
-      </View>
+        <Space height={50} />
+        <View style={{flex: 2, justifyContent: 'center'}}>
+          <InputField iconName="email-outline" placeholder="Your email" />
+          <Space height={28} />
+          <Button labelBtn="Send Email" btnColor="#F26522" />
+        </View>
+        <Space height={30} />
+
+        <Space height={50} />
+        <View style={{flex: 0.2, alignItems: 'center'}}>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}>
+            <Text style={{fontFamily: 'Poppins-Regular'}}>
+              Back to {''} {''}
+            </Text>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('SigninScreen');
+              }}>
+              <Text style={{fontFamily: 'Poppins-Regular', color: '#F26522'}}>
+                Sign In
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </KeyboardAwareScrollView>
     </View>
   );
 };

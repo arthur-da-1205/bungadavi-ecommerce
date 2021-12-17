@@ -1,14 +1,31 @@
 import React from 'react';
 
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {
+  Account,
+  Cart,
+  Explore,
   ForgotPasswordScreen,
   Home,
   SigninScreen,
   SignupScreen,
 } from '../screens';
+import {BottomNavigator} from '../components';
 
 const RouterStack = createNativeStackNavigator();
+const BottomTab = createBottomTabNavigator();
+
+const MainApp = () => {
+  return (
+    <BottomTab.Navigator tabBar={props => <BottomNavigator {...props} />}>
+      <BottomTab.Screen name="Home" component={Home} />
+      <BottomTab.Screen name="Explore" component={Explore} />
+      <BottomTab.Screen name="Account" component={Account} />
+      <BottomTab.Screen name="Cart" component={Cart} />
+    </BottomTab.Navigator>
+  );
+};
 
 const Router = () => {
   return (
@@ -29,8 +46,8 @@ const Router = () => {
         options={{headerShown: false}}
       />
       <RouterStack.Screen
-        name="Home"
-        component={Home}
+        name="MainApp"
+        component={MainApp}
         options={{headerShown: false}}
       />
     </RouterStack.Navigator>
