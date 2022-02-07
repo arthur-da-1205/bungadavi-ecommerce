@@ -5,11 +5,11 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {
   Account,
   Cart,
-  Explore,
   ForgotPasswordScreen,
   Home,
   SigninScreen,
   SignupScreen,
+  Transactions,
 } from '../screens';
 import {BottomNavigator} from '../components';
 
@@ -18,15 +18,42 @@ const BottomTab = createBottomTabNavigator();
 
 const MainApp = () => {
   return (
-    <BottomTab.Navigator
-      screenOptions={{
-        headerShown: false,
-      }}
-      tabBar={props => <BottomNavigator {...props} />}>
-      <BottomTab.Screen name="Home" component={Home} />
-      <BottomTab.Screen name="Explore" component={Explore} />
-      <BottomTab.Screen name="Cart" component={Cart} />
-      <BottomTab.Screen name="Account" component={Account} />
+    <BottomTab.Navigator tabBar={props => <BottomNavigator {...props} />}>
+      <BottomTab.Screen
+        options={{headerShown: false}}
+        name="Home"
+        component={Home}
+      />
+      <BottomTab.Screen
+        name="Cart"
+        component={Cart}
+        options={{
+          title: 'Cart',
+          headerTitleStyle: {
+            color: '#F75306',
+          },
+        }}
+      />
+      <BottomTab.Screen
+        name="Transactions"
+        component={Transactions}
+        options={{
+          title: 'Transactions',
+          headerTitleStyle: {
+            color: '#F75306',
+          },
+        }}
+      />
+      <BottomTab.Screen
+        name="Account"
+        component={Account}
+        options={{
+          title: 'Account',
+          headerTitleStyle: {
+            color: '#F75306',
+          },
+        }}
+      />
     </BottomTab.Navigator>
   );
 };

@@ -15,13 +15,7 @@ const Button = ({
       style={styles.btnContainer(btnColor, btnHeight)}
       onPress={onPress}>
       <Image source={image} />
-      <View
-        style={{
-          justifyContent: 'center',
-          alignItems: 'center',
-          alignSelf: 'stretch',
-          flex: 2,
-        }}>
+      <View style={styles.textContainer}>
         <Text style={styles.textBtn(textColor, fontSize)}>{labelBtn}</Text>
       </View>
     </TouchableOpacity>
@@ -44,6 +38,12 @@ const styles = StyleSheet.create({
     shadowRadius: 2,
     elevation: 2,
   }),
+  textContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'stretch',
+    flex: 2,
+  },
   textBtn: (textColor, fontSize) => ({
     fontFamily: 'Poppins-Regular',
     fontSize: fontSize,

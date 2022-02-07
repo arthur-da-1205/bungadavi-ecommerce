@@ -2,7 +2,7 @@ import SigninScreen from './SigninScreen';
 import SignupScreen from './SignupScreen';
 import ForgotPasswordScreen from './ForgotPasswordScreen';
 import Home from './Home';
-import Explore from './Explore';
+import Transactions from './Transactions';
 import Account from './Account';
 import Cart from './Cart';
 
@@ -11,7 +11,7 @@ export {
   SignupScreen,
   ForgotPasswordScreen,
   Home,
-  Explore,
+  Transactions,
   Account,
   Cart,
 };

@@ -1,14 +1,5 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  TouchableOpacity,
-  FlatList,
-  Image,
-} from 'react-native';
+import {View, Text, SafeAreaView, StyleSheet, FlatList} from 'react-native';
 
 import {dummyDataCategory, dummyNewProduct} from '../../dummy/dataDummy';
 import {
@@ -43,10 +34,9 @@ const Home = () => {
       <View style={styles.categoryContainer}>
         <View style={styles.categoryTitleContainer}>
           <Text style={styles.categoryTitle}>Kategori</Text>
-          {/* <Text style={styles.seeAll}>See all</Text> */}
         </View>
-        <Space height={10} />
-        <View style={{flex: 1.5}}>
+        <Space height={8} />
+        <View style={styles.categoryItem}>
           <FlatList
             keyExtractor={(item, index) => item.id}
             data={dummyDataCategory}
@@ -56,10 +46,11 @@ const Home = () => {
           />
         </View>
       </View>
+      <Space height={10} />
       <View style={styles.newProductContainer}>
         <Text style={styles.categoryTitle}>Produk Terbaru</Text>
-        <View style={{paddingVertical: 30}}>
-          <Space height={10} />
+        <View style={styles.newProductItem}>
+          <Space height={8} />
           <FlatList
             keyExtractor={(item, index) => item.id}
             data={dummyNewProduct}
@@ -85,8 +76,7 @@ const styles = StyleSheet.create({
   },
   greetingText: {fontFamily: 'Poppins-Regular', color: '#000'},
   search: {flex: 0.7},
-  categoryContainer: {flex: 1.5},
-  newProductContainer: {flex: 3},
+  categoryContainer: {flex: 1.3},
   categoryTitleContainer: {
     flex: 0.5,
     flexDirection: 'row',
@@ -94,5 +84,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   categoryTitle: {fontSize: 14, fontFamily: 'Poppins-Medium', color: '#000'},
-  seeAll: {fontSize: 12, fontFamily: 'Poppins-Medium'},
+  categoryItem: {flex: 1.5},
+  newProductContainer: {flex: 3.5},
+  newProductItem: {paddingVertical: 30},
 });

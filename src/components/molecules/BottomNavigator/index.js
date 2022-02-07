@@ -16,7 +16,7 @@ const BottomIcon = ({label, focus}) => {
           <Text style={styles.textInActive}>Home</Text>
         </View>
       );
-    case 'Explore':
+    case 'Transactions':
       return focus ? (
         <View style={styles.containerActive}>
           <IconMC name="note-text-outline" size={25} color="#F26522" />
