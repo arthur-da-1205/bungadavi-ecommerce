@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {icGoogle, Logo} from '../../assets';
@@ -7,38 +7,19 @@ import {Button, InputField, Space} from '../../components';
 
 const SigninScreen = ({navigation}) => {
   return (
-    <View
-      style={{
-        flex: 1,
-        flexDirection: 'column',
-        paddingHorizontal: 20,
-        paddingVertical: 70,
-      }}>
+    <View style={styles.mainContainer}>
       <KeyboardAwareScrollView showsVerticalScrollIndicator={false}>
-        <View style={{flex: 1, alignItems: 'center'}}>
+        <View style={styles.header}>
           <Logo />
           <Space height={18} />
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}>
+          <View style={styles.logoContainer}>
             <Icon name="login" size={25} color="#F75306" />
             <Space width={8} />
-            <Text
-              style={{
-                fontFamily: 'Poppins-Medium',
-                color: '#F75306',
-                fontSize: 20,
-                fontWeight: 'bold',
-              }}>
-              Sign In to Continue
-            </Text>
+            <Text style={styles.title}>Sign In to Continue</Text>
           </View>
         </View>
         <Space height={50} />
-        <View style={{flex: 2, justifyContent: 'center'}}>
+        <View style={styles.inputContainer}>
           <InputField iconName="email-outline" placeholder="Your email" />
           <Space height={12} />
           <InputField iconName="lock-outline" placeholder="Password" />
@@ -52,11 +33,11 @@ const SigninScreen = ({navigation}) => {
           />
         </View>
         <Space height={30} />
-        <View style={{flex: 0.2, alignItems: 'center'}}>
+        <View style={styles.textOR}>
           <Text>OR</Text>
         </View>
         <Space height={30} />
-        <View style={{flex: 1}}>
+        <View style={styles.googleBtn}>
           <Button
             image={icGoogle}
             labelBtn="Sign In with Google"
@@ -65,32 +46,23 @@ const SigninScreen = ({navigation}) => {
           />
         </View>
         <Space height={50} />
-        <View style={{flex: 0.2, alignItems: 'center'}}>
+        <View style={styles.forgotContainer}>
           <TouchableOpacity
             onPress={() => {
               navigation.navigate('ForgotPasswordScreen');
             }}>
-            <Text style={{fontFamily: 'Poppins-Regular', color: '#F26522'}}>
-              Forgot Password?
-            </Text>
+            <Text style={styles.forgotText}>Forgot Password?</Text>
           </TouchableOpacity>
           <Space height={10} />
-          <View
-            style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}>
-            <Text style={{fontFamily: 'Poppins-Regular'}}>
+          <View style={styles.dontHaveContainer}>
+            <Text style={styles.dontHaveText}>
               Don't have an account? {''} {''}
             </Text>
             <TouchableOpacity
               onPress={() => {
                 navigation.navigate('SignupScreen');
               }}>
-              <Text style={{fontFamily: 'Poppins-Regular', color: '#F26522'}}>
-                Register
-              </Text>
+              <Text style={styles.registText}>Register</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -100,3 +72,36 @@ const SigninScreen = ({navigation}) => {
 };
 
 export default SigninScreen;
+
+const styles = StyleSheet.create({
+  mainContainer: {
+    flex: 1,
+    flexDirection: 'column',
+    paddingHorizontal: 20,
+    paddingVertical: 70,
+  },
+  header: {flex: 1, alignItems: 'center'},
+  logoContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  title: {
+    fontFamily: 'Poppins-Medium',
+    color: '#F75306',
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  inputContainer: {flex: 2, justifyContent: 'center'},
+  textOR: {flex: 0.2, alignItems: 'center'},
+  googleBtn: {flex: 1},
+  forgotContainer: {flex: 0.2, alignItems: 'center'},
+  forgotText: {fontFamily: 'Poppins-Regular', color: '#F26522'},
+  dontHaveContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  dontHaveText: {fontFamily: 'Poppins-Regular'},
+  registText: {fontFamily: 'Poppins-Regular', color: '#F26522'},
+});

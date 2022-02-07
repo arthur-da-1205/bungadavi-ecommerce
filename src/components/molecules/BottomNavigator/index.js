@@ -1,61 +1,55 @@
 import React from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import IconM from 'react-native-vector-icons/MaterialIcons';
+import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import IconMC from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const BottomIcon = ({label, focus}) => {
   switch (label) {
     case 'Home':
       return focus ? (
-        <View
-          style={{marginRight: 6, flexDirection: 'row', alignItems: 'center'}}>
-          <IconMC name="home" size={20} color="#F26522" />
-          <Text style={{color: '#F26522', marginLeft: 4}}>Home</Text>
+        <View style={styles.containerActive}>
+          <IconMC name="home" size={25} color="#F26522" />
+          <Text style={styles.textActive}>Home</Text>
         </View>
       ) : (
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
-          <IconMC name="home" size={20} />
-          <Text style={{color: '#FFFF'}}>Home</Text>
+        <View style={styles.containerInActive}>
+          <IconMC name="home" size={25} />
+          <Text style={styles.textInActive}>Home</Text>
         </View>
       );
     case 'Explore':
       return focus ? (
-        <View
-          style={{marginRight: 6, flexDirection: 'row', alignItems: 'center'}}>
-          <IconMC name="magnify" size={20} color="#F26522" />
-          <Text style={{color: '#F26522', marginLeft: 4}}>Explore</Text>
+        <View style={styles.containerActive}>
+          <IconMC name="note-text-outline" size={25} color="#F26522" />
+          <Text style={styles.textActive}>Transactions</Text>
         </View>
       ) : (
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
-          <IconMC name="magnify" size={20} />
-          <Text style={{color: '#FFFF'}}>Explore</Text>
+        <View style={styles.containerInActive}>
+          <IconMC name="note-text-outline" size={25} />
+          <Text style={styles.textInActive}>Transactions</Text>
         </View>
       );
     case 'Account':
       return focus ? (
-        <View
-          style={{marginRight: 6, flexDirection: 'row', alignItems: 'center'}}>
-          <IconMC name="account-outline" size={20} color="#F26522" />
-          <Text style={{color: '#F26522', marginLeft: 4}}>Account</Text>
+        <View style={styles.containerActive}>
+          <IconMC name="account-outline" size={25} color="#F26522" />
+          <Text style={styles.textActive}>Account</Text>
         </View>
       ) : (
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
-          <IconMC name="account-outline" size={20} />
-          <Text style={{color: '#FFFF'}}>Account</Text>
+        <View style={styles.containerInActive}>
+          <IconMC name="account-outline" size={25} />
+          <Text style={styles.textInActive}>Account</Text>
         </View>
       );
     case 'Cart':
       return focus ? (
-        <View
-          style={{marginRight: 6, flexDirection: 'row', alignItems: 'center'}}>
-          <IconMC name="cart-outline" size={20} color="#F26522" />
-          <Text style={{color: '#F26522', marginHorizontal: 4}}>My Cart</Text>
+        <View style={styles.containerActive}>
+          <IconMC name="cart-outline" size={25} color="#F26522" />
+          <Text style={styles.textActive}>Cart</Text>
         </View>
       ) : (
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
-          <IconMC name="cart-outline" size={20} />
-          <Text style={{color: '#FFFF'}}>My Cart</Text>
+        <View style={styles.containerInActive}>
+          <IconMC name="cart-outline" size={25} />
+          <Text style={styles.textInActive}>Cart</Text>
         </View>
       );
     default:
@@ -71,17 +65,7 @@ const BottomNavigator = ({state, descriptors, navigation}) => {
   }
 
   return (
-    <View
-      style={{
-        backgroundColor: 'white',
-        flexDirection: 'row',
-        paddingTop: 15,
-        paddingBottom: 13,
-        paddingHorizontal: 50,
-        justifyContent: 'space-between',
-        borderTopLeftRadius: 40,
-        borderTopRightRadius: 40,
-      }}>
+    <View style={styles.bottomTabContainer}>
       {state.routes.map((route, index) => {
         const {options} = descriptors[route.key];
         const label =
@@ -121,7 +105,7 @@ const BottomNavigator = ({state, descriptors, navigation}) => {
             testID={options.tabBarTestID}
             onPress={onPress}
             onLongPress={onLongPress}
-            style={{flex: 1, alignItems: 'center'}}>
+            style={styles.bottomTabBtn}>
             <BottomIcon label={label} focus={isFocused} />
           </TouchableOpacity>
         );
@@ -131,3 +115,21 @@ const BottomNavigator = ({state, descriptors, navigation}) => {
 };
 
 export default BottomNavigator;
+
+const styles = StyleSheet.create({
+  containerActive: {alignItems: 'center'},
+  textActive: {color: '#F26522'},
+  containerInActive: {alignItems: 'center'},
+  textInActive: {color: '#FFFF'},
+  bottomTabContainer: {
+    backgroundColor: 'white',
+    flexDirection: 'row',
+    paddingTop: 15,
+    paddingBottom: 13,
+    paddingHorizontal: 20,
+    justifyContent: 'space-between',
+    borderTopLeftRadius: 40,
+    borderTopRightRadius: 40,
+  },
+  bottomTabBtn: {flex: 1, alignItems: 'center'},
+});

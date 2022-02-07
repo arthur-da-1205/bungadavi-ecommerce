@@ -1,3 +1,5 @@
 import BottomNavigator from './BottomNavigator';
+import CategoryGridTile from './CategoryGridTile';
+import ProductCard from './ProductCard';
 
-export {BottomNavigator};
+export {BottomNavigator, CategoryGridTile, ProductCard};

@@ -6,10 +6,14 @@ const Button = ({
   labelBtn,
   onPress,
   btnColor = '#FF61C7',
+  btnHeight = 9,
   textColor = '#FFFFFF',
+  fontSize = 16,
 }) => {
   return (
-    <TouchableOpacity style={styles.btnContainer(btnColor)} onPress={onPress}>
+    <TouchableOpacity
+      style={styles.btnContainer(btnColor, btnHeight)}
+      onPress={onPress}>
       <Image source={image} />
       <View
         style={{
@@ -18,7 +22,7 @@ const Button = ({
           alignSelf: 'stretch',
           flex: 2,
         }}>
-        <Text style={styles.textBtn(textColor)}>{labelBtn}</Text>
+        <Text style={styles.textBtn(textColor, fontSize)}>{labelBtn}</Text>
       </View>
     </TouchableOpacity>
   );
@@ -27,10 +31,10 @@ const Button = ({
 export default Button;
 
 const styles = StyleSheet.create({
-  btnContainer: btnColor => ({
+  btnContainer: (btnColor, btnHeight) => ({
     backgroundColor: btnColor,
     alignItems: 'center',
-    paddingVertical: 9,
+    paddingVertical: btnHeight,
     paddingHorizontal: 9,
     borderRadius: 10,
     flexDirection: 'row',
@@ -40,9 +44,9 @@ const styles = StyleSheet.create({
     shadowRadius: 2,
     elevation: 2,
   }),
-  textBtn: textColor => ({
+  textBtn: (textColor, fontSize) => ({
     fontFamily: 'Poppins-Regular',
-    fontSize: 16,
+    fontSize: fontSize,
     color: textColor,
   }),
 });
