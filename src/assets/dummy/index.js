@@ -7,6 +7,7 @@ import sedapDummy from './sedap-malam.jpeg';
 import pinkDummy from './pink-rose.jpeg';
 import bugenvilDummy from './bugenvil.jpeg';
 import geraniumDummy from './geranium.jpeg';
+import profileDummy from './ProfileImage.png';
 
 export {
   roseDummy,
@@ -18,4 +19,5 @@ export {
   pinkDummy,
   bugenvilDummy,
   geraniumDummy,
+  profileDummy,
 };

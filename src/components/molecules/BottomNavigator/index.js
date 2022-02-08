@@ -1,13 +1,14 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import IconMC from 'react-native-vector-icons/MaterialCommunityIcons';
+import {COLORS} from '../../../../constant';
 
 const BottomIcon = ({label, focus}) => {
   switch (label) {
     case 'Home':
       return focus ? (
         <View style={styles.containerActive}>
-          <IconMC name="home" size={25} color="#F26522" />
+          <IconMC name="home" size={25} color={COLORS.primary2} />
           <Text style={styles.textActive}>Home</Text>
         </View>
       ) : (
@@ -19,7 +20,7 @@ const BottomIcon = ({label, focus}) => {
     case 'Transactions':
       return focus ? (
         <View style={styles.containerActive}>
-          <IconMC name="note-text-outline" size={25} color="#F26522" />
+          <IconMC name="note-text-outline" size={25} color={COLORS.primary2} />
           <Text style={styles.textActive}>Transactions</Text>
         </View>
       ) : (
@@ -31,7 +32,7 @@ const BottomIcon = ({label, focus}) => {
     case 'Account':
       return focus ? (
         <View style={styles.containerActive}>
-          <IconMC name="account-outline" size={25} color="#F26522" />
+          <IconMC name="account-outline" size={25} color={COLORS.primary2} />
           <Text style={styles.textActive}>Account</Text>
         </View>
       ) : (
@@ -43,7 +44,7 @@ const BottomIcon = ({label, focus}) => {
     case 'Cart':
       return focus ? (
         <View style={styles.containerActive}>
-          <IconMC name="cart-outline" size={25} color="#F26522" />
+          <IconMC name="cart-outline" size={25} color={COLORS.primary2} />
           <Text style={styles.textActive}>Cart</Text>
         </View>
       ) : (
@@ -118,9 +119,9 @@ export default BottomNavigator;
 
 const styles = StyleSheet.create({
   containerActive: {alignItems: 'center'},
-  textActive: {color: '#F26522'},
+  textActive: {color: COLORS.primary2},
   containerInActive: {alignItems: 'center'},
-  textInActive: {color: '#FFFF'},
+  textInActive: {color: COLORS.white},
   bottomTabContainer: {
     backgroundColor: 'white',
     flexDirection: 'row',

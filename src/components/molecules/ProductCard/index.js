@@ -11,6 +11,7 @@ import {
 import React from 'react';
 import {Button} from '../..';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {COLORS} from '../../../../constant';
 
 const windowWidth = Dimensions.get('screen').width;
 
@@ -61,7 +62,7 @@ const styles = StyleSheet.create({
   foodName: {
     fontSize: 14,
     fontFamily: 'Poppins-Regular',
-    color: '#020202',
+    color: COLORS.black,
   },
   btnContainer: {
     padding: 6,
@@ -71,7 +72,7 @@ const styles = StyleSheet.create({
   },
   btnCart: {
     flex: 1,
-    backgroundColor: '#f5a442',
+    backgroundColor: COLORS.primary2,
     borderRadius: 8,
     justifyContent: 'center',
     alignItems: 'center',

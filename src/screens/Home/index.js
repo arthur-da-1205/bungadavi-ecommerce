@@ -8,6 +8,7 @@ import {
   ProductCard,
   Space,
 } from '../../components';
+import {COLORS} from '../../../constant';
 
 const Home = () => {
   const renderCategory = itemData => {
@@ -74,7 +75,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-  greetingText: {fontFamily: 'Poppins-Regular', color: '#000'},
+  greetingText: {fontFamily: 'Poppins-Regular', color: COLORS.black},
   search: {flex: 0.7},
   categoryContainer: {flex: 1.3},
   categoryTitleContainer: {
@@ -83,7 +84,11 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-  categoryTitle: {fontSize: 14, fontFamily: 'Poppins-Medium', color: '#000'},
+  categoryTitle: {
+    fontSize: 14,
+    fontFamily: 'Poppins-Medium',
+    color: COLORS.black,
+  },
   categoryItem: {flex: 1.5},
   newProductContainer: {flex: 3.5},
   newProductItem: {paddingVertical: 30},

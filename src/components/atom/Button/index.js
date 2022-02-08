@@ -1,13 +1,14 @@
 import React from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {COLORS} from '../../../../constant';
 
 const Button = ({
   image,
   labelBtn,
   onPress,
-  btnColor = '#FF61C7',
+  btnColor = COLORS.primary1,
   btnHeight = 9,
-  textColor = '#FFFFFF',
+  textColor = COLORS.white,
   fontSize = 16,
 }) => {
   return (

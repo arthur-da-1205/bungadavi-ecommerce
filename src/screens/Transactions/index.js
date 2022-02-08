@@ -4,6 +4,7 @@ import NeedToPay from './NeedToPay';
 import InProcess from './InProcess';
 import Done from './Done';
 import Canceled from './Canceled';
+import {COLORS} from '../../../constant';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -16,9 +17,9 @@ const Transactions = () => {
           textTransform: 'none',
           fontFamily: 'Poppins-Regular',
         },
-        tabBarActiveTintColor: '#e91e63',
-        tabBarInactiveTintColor: '#808080',
-        tabBarIndicatorStyle: {backgroundColor: '#FF61C7'},
+        tabBarActiveTintColor: COLORS.primary1,
+        tabBarInactiveTintColor: COLORS.gray,
+        tabBarIndicatorStyle: {backgroundColor: COLORS.primary1},
         tabBarStyle: {marginTop: 8},
       }}
       backBehavior="none">

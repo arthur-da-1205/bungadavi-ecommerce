@@ -1,6 +1,7 @@
 import React from 'react';
 import {StyleSheet, TextInput, View} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {COLORS} from '../../../../constant';
 
 const InputField = ({iconName, placeholder, ...props}) => {
   return (
@@ -20,16 +21,16 @@ export default InputField;
 const styles = StyleSheet.create({
   labelText: {
     fontFamily: 'Poppins-Regular',
-    color: '#7D8797',
+    color: COLORS.gray,
     fontSize: 14,
     flex: 2,
     marginLeft: 12,
   },
   textField: {
-    color: '#8D92A3',
+    color: COLORS.gray,
     borderWidth: 2,
     borderRadius: 10,
-    borderColor: '#7D8797',
+    borderColor: COLORS.gray,
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 4,

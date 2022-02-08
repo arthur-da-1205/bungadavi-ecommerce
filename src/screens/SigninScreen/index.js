@@ -2,6 +2,7 @@ import React from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {COLORS} from '../../../constant';
 import {icGoogle, Logo} from '../../assets';
 import {Button, InputField, Space} from '../../components';
 
@@ -13,7 +14,7 @@ const SigninScreen = ({navigation}) => {
           <Logo />
           <Space height={18} />
           <View style={styles.logoContainer}>
-            <Icon name="login" size={25} color="#F75306" />
+            <Icon name="login" size={25} color={COLORS.primary2} />
             <Space width={8} />
             <Text style={styles.title}>Sign In to Continue</Text>
           </View>
@@ -26,7 +27,7 @@ const SigninScreen = ({navigation}) => {
           <Space height={28} />
           <Button
             labelBtn="Sign In"
-            btnColor="#F26522"
+            btnColor={COLORS.primary2}
             onPress={() => {
               navigation.navigate('MainApp');
             }}
@@ -41,8 +42,8 @@ const SigninScreen = ({navigation}) => {
           <Button
             image={icGoogle}
             labelBtn="Sign In with Google"
-            btnColor="#FFFF"
-            textColor="#000"
+            btnColor={COLORS.white}
+            textColor={COLORS.black}
           />
         </View>
         <Space height={50} />
@@ -88,7 +89,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontFamily: 'Poppins-Medium',
-    color: '#F75306',
+    color: COLORS.primary2,
     fontSize: 20,
     fontWeight: 'bold',
   },
@@ -96,12 +97,12 @@ const styles = StyleSheet.create({
   textOR: {flex: 0.2, alignItems: 'center'},
   googleBtn: {flex: 1},
   forgotContainer: {flex: 0.2, alignItems: 'center'},
-  forgotText: {fontFamily: 'Poppins-Regular', color: '#F26522'},
+  forgotText: {fontFamily: 'Poppins-Regular', color: COLORS.primary2},
   dontHaveContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
   },
   dontHaveText: {fontFamily: 'Poppins-Regular'},
-  registText: {fontFamily: 'Poppins-Regular', color: '#F26522'},
+  registText: {fontFamily: 'Poppins-Regular', color: COLORS.primary2},
 });

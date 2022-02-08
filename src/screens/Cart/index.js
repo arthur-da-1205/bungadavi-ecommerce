@@ -1,12 +1,8 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {EmptyData} from '../../components';
 
 const Cart = () => {
-  return (
-    <View>
-      <Text>My Cart</Text>
-    </View>
-  );
+  return <EmptyData iconName="cart-outline" text="Your Cart is Empty" />;
 };
 
 export default Cart;

@@ -7,6 +7,7 @@ import {
   TouchableNativeFeedback,
   Platform,
 } from 'react-native';
+import {COLORS} from '../../../../constant';
 
 const CategoryGridTile = props => {
   var TouchCompt = TouchableOpacity;
@@ -48,6 +49,6 @@ const styles = StyleSheet.create({
     fontSize: 10,
     textAlign: 'right',
     fontFamily: 'Poppins-Regular',
-    color: '#FFF',
+    color: COLORS.white,
   },
 });
