@@ -4,6 +4,8 @@ import ProductCard from './ProductCard';
 import EmptyData from './EmptyData';
 import ListMenu from './ListMenu';
 import Counter from './Counter';
+import ItemProductCard from './ItemProductCard';
+import ItemValue from './ItemValue';
 
 export {
   BottomNavigator,
@@ -12,4 +14,6 @@ export {
   EmptyData,
   ListMenu,
   Counter,
+  ItemProductCard,
+  ItemValue,
 };

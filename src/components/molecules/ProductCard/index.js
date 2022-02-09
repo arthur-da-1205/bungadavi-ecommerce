@@ -11,7 +11,6 @@ import {
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {Button} from '../..';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {COLORS} from '../../../../constant';
 
@@ -26,17 +25,14 @@ const ProductCard = ({name, image, price, onPress}) => {
     <TouchCompt onPress={onPress}>
       <View style={styles.foodContainer}>
         <Image source={image} style={styles.imageContainer} />
-        <View style={styles.textContainer}>
-          <Text style={styles.foodName}>{name}</Text>
-          <Text>Rp. {price}</Text>
-        </View>
-        <View style={styles.btnContainer}>
+        <View style={styles.descContainer}>
+          <View style={styles.textContainer}>
+            <Text style={styles.foodName}>{name}</Text>
+            <Text>Rp. {price}</Text>
+          </View>
           <TouchableOpacity style={styles.btnCart}>
             <Icon name="cart-outline" size={20} />
           </TouchableOpacity>
-          <View style={styles.btnBuy}>
-            <Button labelBtn="Buy Now" fontSize={14} btnHeight={4} />
-          </View>
         </View>
       </View>
     </TouchCompt>
@@ -45,8 +41,8 @@ const ProductCard = ({name, image, price, onPress}) => {
 
 ProductCard.propTypes = {
   name: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
+  image: PropTypes.node.isRequired,
+  price: PropTypes.number,
 };
 export default ProductCard;
 
@@ -65,6 +61,13 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   imageContainer: {height: 120, width: 180, flex: 1},
+  descContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingRight: 4,
+  },
   textContainer: {padding: 12, flex: 1},
   foodName: {
     fontSize: 14,
@@ -78,12 +81,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   btnCart: {
-    flex: 1,
+    flex: 0.3,
     backgroundColor: COLORS.primary2,
     borderRadius: 8,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 4,
+    padding: 6,
   },
   btnBuy: {flex: 3, marginLeft: 8},
 });

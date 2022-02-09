@@ -6,6 +6,8 @@ import Transactions from './Transactions';
 import Account from './Account';
 import Cart from './Cart';
 import DetailProductScreen from './DetailProductScreen';
+import OrderSummaryScreen from './OrderSummaryScreen';
+import SnapPaymentScreen from './SnapPayment';
 
 export {
   SigninScreen,
@@ -16,4 +18,6 @@ export {
   Account,
   Cart,
   DetailProductScreen,
+  OrderSummaryScreen,
+  SnapPaymentScreen,
 };

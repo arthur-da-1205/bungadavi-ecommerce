@@ -8,16 +8,20 @@ import {
   DetailProductScreen,
   ForgotPasswordScreen,
   Home,
+  OrderSummaryScreen,
   SigninScreen,
   SignupScreen,
+  SnapPaymentScreen,
   Transactions,
 } from '../screens';
 import {BottomNavigator} from '../components';
+import {COLORS} from '../../constant';
 
 const RouterStack = createNativeStackNavigator();
 const BottomTab = createBottomTabNavigator();
 
 const MainApp = () => {
+  const bottomColor = COLORS.primary2;
   return (
     <BottomTab.Navigator tabBar={props => <BottomNavigator {...props} />}>
       <BottomTab.Screen
@@ -31,7 +35,7 @@ const MainApp = () => {
         options={{
           title: 'Cart',
           headerTitleStyle: {
-            color: '#F75306',
+            color: bottomColor,
           },
         }}
       />
@@ -41,7 +45,7 @@ const MainApp = () => {
         options={{
           title: 'Transactions',
           headerTitleStyle: {
-            color: '#F75306',
+            color: bottomColor,
           },
         }}
       />
@@ -51,7 +55,7 @@ const MainApp = () => {
         options={{
           title: 'Account',
           headerTitleStyle: {
-            color: '#F75306',
+            color: bottomColor,
           },
         }}
       />
@@ -86,6 +90,21 @@ const Router = () => {
         name="DetailProductScreen"
         component={DetailProductScreen}
         options={{headerShown: false}}
+      />
+      <RouterStack.Screen
+        name="OrderSummaryScreen"
+        component={OrderSummaryScreen}
+        options={{
+          title: 'Order Summary Screen',
+          headerTintColor: COLORS.primary2,
+        }}
+      />
+      <RouterStack.Screen
+        name="SnapPaymentScreen"
+        component={SnapPaymentScreen}
+        options={{
+          title: 'Payment',
+        }}
       />
     </RouterStack.Navigator>
   );

@@ -19,6 +19,25 @@ const DetailProductScreen = ({navigation, route}) => {
     setTotalItem(value);
   };
 
+  const onOrder = () => {
+    const totalPrice = totalItem * data.price;
+    const driverCost = 5000;
+    const tax = (10 / 100) * totalPrice;
+    const total = totalPrice + driverCost + tax;
+
+    const dataOrder = {
+      item: data,
+      transaction: {
+        totalItem,
+        totalPrice,
+        driverCost,
+        tax,
+        total,
+      },
+    };
+    navigation.navigate('OrderSummaryScreen', dataOrder);
+  };
+
   return (
     <View style={styles.pageContainer}>
       <ImageBackground source={data.img} style={styles.imageBanner}>
@@ -52,7 +71,7 @@ const DetailProductScreen = ({navigation, route}) => {
             />
           </View>
           <View style={styles.btnOrder}>
-            <Button labelBtn="Order Now" />
+            <Button labelBtn="Order Now" onPress={onOrder} />
           </View>
         </View>
       </View>

@@ -12,6 +12,8 @@ target 'BD_ECommerce' do
     :hermes_enabled => false
   )
 
+  pod 'react-native-webview', :path => '../node_modules/react-native-webview'
+
   target 'BD_ECommerceTests' do
     inherit! :complete
     # Pods for testing
