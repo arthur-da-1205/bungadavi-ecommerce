@@ -5,6 +5,7 @@ import Home from './Home';
 import Transactions from './Transactions';
 import Account from './Account';
 import Cart from './Cart';
+import DetailProductScreen from './DetailProductScreen';
 
 export {
   SigninScreen,
@@ -14,4 +15,5 @@ export {
   Transactions,
   Account,
   Cart,
+  DetailProductScreen,
 };

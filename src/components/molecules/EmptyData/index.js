@@ -1,5 +1,6 @@
 import {View, Text, StyleSheet} from 'react-native';
 import React from 'react';
+import PropTypes from 'prop-types';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import {Space} from '../..';
@@ -13,6 +14,11 @@ const EmptyData = ({iconName, text}) => {
       <Text style={styles.text}>{text}</Text>
     </View>
   );
+};
+
+EmptyData.propTypes = {
+  iconName: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
 };
 
 export default EmptyData;

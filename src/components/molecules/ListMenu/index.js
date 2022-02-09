@@ -1,6 +1,8 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import PropTypes from 'prop-types';
+
 import {COLORS} from '../../../../constant';
 
 const ListMenu = ({label, iconName}) => {
@@ -21,6 +23,10 @@ const ListMenu = ({label, iconName}) => {
   );
 };
 
+ListMenu.propTypes = {
+  label: PropTypes.string.isRequired,
+  iconName: PropTypes.string.isRequired,
+};
 export default ListMenu;
 
 const styles = StyleSheet.create({

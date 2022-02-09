@@ -10,7 +10,7 @@ import {
 } from '../../components';
 import {COLORS} from '../../../constant';
 
-const Home = () => {
+const Home = ({navigation}) => {
   const renderCategory = itemData => {
     const data = itemData.item;
     return <CategoryGridTile name={data.name} color={data.color} />;
@@ -20,7 +20,16 @@ const Home = () => {
     const data = itemData.item;
     console.log(data);
     <Space height={10} />;
-    return <ProductCard name={data.name} image={data.img} />;
+    return (
+      <ProductCard
+        name={data.name}
+        image={data.img}
+        price={data.price}
+        onPress={() => {
+          navigation.navigate('DetailProductScreen', data);
+        }}
+      />
+    );
   };
   return (
     <SafeAreaView style={styles.mainContainer}>

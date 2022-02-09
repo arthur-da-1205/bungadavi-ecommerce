@@ -5,6 +5,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {
   Account,
   Cart,
+  DetailProductScreen,
   ForgotPasswordScreen,
   Home,
   SigninScreen,
@@ -79,6 +80,11 @@ const Router = () => {
       <RouterStack.Screen
         name="MainApp"
         component={MainApp}
+        options={{headerShown: false}}
+      />
+      <RouterStack.Screen
+        name="DetailProductScreen"
+        component={DetailProductScreen}
         options={{headerShown: false}}
       />
     </RouterStack.Navigator>

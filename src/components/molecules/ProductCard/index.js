@@ -9,13 +9,15 @@ import {
   Dimensions,
 } from 'react-native';
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import {Button} from '../..';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {COLORS} from '../../../../constant';
 
 const windowWidth = Dimensions.get('screen').width;
 
-const ProductCard = ({name, image, onPress}) => {
+const ProductCard = ({name, image, price, onPress}) => {
   var TouchCompt = TouchableOpacity;
   if (Platform.OS === 'android' && Platform.Version >= 21) {
     TouchCompt = TouchableNativeFeedback;
@@ -26,7 +28,7 @@ const ProductCard = ({name, image, onPress}) => {
         <Image source={image} style={styles.imageContainer} />
         <View style={styles.textContainer}>
           <Text style={styles.foodName}>{name}</Text>
-          <Text>Rp. 10.000</Text>
+          <Text>Rp. {price}</Text>
         </View>
         <View style={styles.btnContainer}>
           <TouchableOpacity style={styles.btnCart}>
@@ -41,6 +43,11 @@ const ProductCard = ({name, image, onPress}) => {
   );
 };
 
+ProductCard.propTypes = {
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+};
 export default ProductCard;
 
 const styles = StyleSheet.create({
