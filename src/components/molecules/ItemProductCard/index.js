@@ -1,6 +1,7 @@
 import React from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {CustomNumber} from '../..';
+import {COLORS} from '../../../../constant';
 
 /*
 TYPE:
@@ -8,6 +9,7 @@ TYPE:
 2. order-summary
 3. in-progress
 4. past-orders
+5. cart
 */
 
 const ItemProductCard = ({
@@ -20,6 +22,7 @@ const ItemProductCard = ({
   name,
   date,
   status,
+  onCount,
 }) => {
   const renderContent = () => {
     switch (type) {
@@ -78,6 +81,17 @@ const ItemProductCard = ({
             </View>
           </>
         );
+
+      case 'cart':
+        return (
+          <View style={styles.cartSection}>
+            <View style={styles.content}>
+              <Text style={styles.title}>{name}</Text>
+              {/* <CustomNumber number={price} style={styles.price} /> */}
+            </View>
+          </View>
+        );
+
       default:
         // item product
         return (
@@ -107,11 +121,11 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     backgroundColor: 'white',
-    paddingVertical: 8,
+    padding: 8,
     alignItems: 'center',
   },
   image: {
-    width: 60,
+    width: 80,
     height: 60,
     borderRadius: 8,
     overflow: 'hidden',
@@ -126,10 +140,10 @@ const styles = StyleSheet.create({
   price: {
     fontFamily: 'Poppins-Regular',
     fontSize: 13,
-    color: '#8D92A3',
+    color: COLORS.primary2,
   },
-  items: {fontSize: 13, fontFamily: 'Poppins-Regular', color: '#8D92A3'},
-  date: {fontSize: 10, fontFamily: 'Poppins-Regular', color: '#8D92A3'},
+  items: {fontSize: 13, fontFamily: 'Poppins-Regular', color: COLORS.gray},
+  date: {fontSize: 10, fontFamily: 'Poppins-Regular', color: COLORS.gray},
   status: status => ({
     fontSize: 10,
     fontFamily: 'Poppins-Regular',
@@ -140,7 +154,8 @@ const styles = StyleSheet.create({
     width: 3,
     height: 3,
     borderRadius: 3,
-    backgroundColor: '#8D92A3',
+    backgroundColor: COLORS.gray,
     marginHorizontal: 4,
   },
+  cartSection: {flex: 1, flexDirection: 'row', alignItems: 'center'},
 });

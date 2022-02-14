@@ -3,7 +3,7 @@ import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {COLORS} from '../../../constant';
-import {icGoogle, Logo} from '../../assets';
+import {Logo} from '../../assets';
 import {Button, InputField, Space} from '../../components';
 
 const SigninScreen = ({navigation}) => {
@@ -22,9 +22,9 @@ const SigninScreen = ({navigation}) => {
         <Space height={50} />
         <View style={styles.inputContainer}>
           <InputField iconName="email-outline" placeholder="Your email" />
-          <Space height={12} />
+          <Space height={25} />
           <InputField iconName="lock-outline" placeholder="Password" />
-          <Space height={28} />
+          <Space height={50} />
           <Button
             labelBtn="Sign In"
             btnColor={COLORS.primary2}
@@ -34,18 +34,18 @@ const SigninScreen = ({navigation}) => {
           />
         </View>
         <Space height={30} />
-        <View style={styles.textOR}>
+        {/* <View style={styles.textOR}>
           <Text>OR</Text>
-        </View>
+        </View> */}
         <Space height={30} />
-        <View style={styles.googleBtn}>
+        {/* <View style={styles.googleBtn}>
           <Button
             image={icGoogle}
             labelBtn="Sign In with Google"
             btnColor={COLORS.white}
             textColor={COLORS.black}
           />
-        </View>
+        </View> */}
         <Space height={50} />
         <View style={styles.forgotContainer}>
           <TouchableOpacity
@@ -93,9 +93,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
   },
-  inputContainer: {flex: 2, justifyContent: 'center'},
-  textOR: {flex: 0.2, alignItems: 'center'},
-  googleBtn: {flex: 1},
+  inputContainer: {flex: 3, justifyContent: 'center'},
   forgotContainer: {flex: 0.2, alignItems: 'center'},
   forgotText: {fontFamily: 'Poppins-Regular', color: COLORS.primary2},
   dontHaveContainer: {
