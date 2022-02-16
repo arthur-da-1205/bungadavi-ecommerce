@@ -2,10 +2,29 @@ import React from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {useDispatch} from 'react-redux';
+
 import {COLORS} from '../../../constant';
 import {Button, InputField, Space} from '../../components';
+import {registerAction} from '../../redux/action';
+import {useForm} from '../../utils';
 
 const SignupScreen = ({navigation}) => {
+  const [form, setForm] = useForm({
+    username: '',
+    fullname: '',
+    email: '',
+    phone: '',
+    password: '',
+  });
+
+  const dispatch = useDispatch();
+
+  const onRegister = () => {
+    console.log('form:', form);
+    dispatch(registerAction(form, navigation));
+  };
+
   return (
     <View style={styles.pageContainer}>
       <KeyboardAwareScrollView showsVerticalScrollIndicator={false}>
@@ -17,18 +36,48 @@ const SignupScreen = ({navigation}) => {
         </View>
         <Space height={30} />
         <View style={styles.inputContainer}>
-          <InputField iconName="account-outline" placeholder="Full Name" />
+          <InputField
+            iconName="account-outline"
+            placeholder="Username"
+            value={form.username}
+            onChangeText={value => setForm('username', value)}
+          />
           <Space height={8} />
-          <InputField iconName="email-outline" placeholder="Your Email" />
+          <InputField
+            iconName="account-outline"
+            placeholder="Full Name"
+            value={form.fullname}
+            onChangeText={value => setForm('fullname', value)}
+          />
+          <Space height={8} />
+          <InputField
+            iconName="email-outline"
+            placeholder="Your Email"
+            value={form.email}
+            onChangeText={value => setForm('email', value)}
+          />
           <Space height={16} />
-          <InputField iconName="lock-outline" placeholder="Password" />
+          <InputField
+            iconName="phone-outline"
+            placeholder="Your Phone Number"
+            value={form.phone}
+            onChangeText={value => setForm('phone', value)}
+          />
           <Space height={16} />
           <InputField
             iconName="lock-outline"
-            placeholder="Type Password Again"
+            placeholder="Password"
+            value={form.password}
+            onChangeText={value => setForm('password', value)}
+            secureTextEntry
           />
+
           <Space height={16} />
-          <Button labelBtn="Sign Up" btnColor={COLORS.primary2} />
+          <Button
+            labelBtn="Sign Up"
+            btnColor={COLORS.primary2}
+            onPress={onRegister}
+          />
         </View>
         <Space height={50} />
         <View style={styles.footer}>
@@ -36,10 +85,7 @@ const SignupScreen = ({navigation}) => {
             Already have account? {''}
             {''}{' '}
           </Text>
-          <TouchableOpacity
-            onPress={() => {
-              navigation.navigate('SigninScreen');
-            }}>
+          <TouchableOpacity onPress={onRegister}>
             <Text style={styles.sigInText}>Sign In</Text>
           </TouchableOpacity>
         </View>
