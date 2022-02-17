@@ -27,7 +27,7 @@ const initStateSignin = {
   expiration_otp: '15',
 };
 
-export const siginReducer = (state = initStateSignin, action) => {
+export const signinReducer = (state = initStateSignin, action) => {
   if (action.type === 'SET_SIGNIN') {
     return {
       ...state,

@@ -29,7 +29,7 @@ const SigninScreen = ({navigation}) => {
             labelBtn="Sign In"
             btnColor={COLORS.primary2}
             onPress={() => {
-              navigation.navigate('MainApp');
+              navigation.navigate('OTPScreen');
             }}
           />
         </View>

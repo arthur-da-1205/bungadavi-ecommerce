@@ -8,6 +8,7 @@ import Cart from './Cart';
 import DetailProductScreen from './DetailProductScreen';
 import OrderSummaryScreen from './OrderSummaryScreen';
 import SnapPaymentScreen from './SnapPayment';
+import OTPScreen from './OTPScreen';
 
 export {
   SigninScreen,
@@ -20,4 +21,5 @@ export {
   DetailProductScreen,
   OrderSummaryScreen,
   SnapPaymentScreen,
+  OTPScreen,
 };

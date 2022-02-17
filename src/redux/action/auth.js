@@ -26,6 +26,8 @@ export const siginAction = (dataUser, navigation) => dispatch => {
   dispatch(setLoading(true));
   API_USER_HOST.post('/login', dataUser)
     .then(res => {
+      dispatch(setLoading(false));
+      dispatch({type: 'SET_SIGNIN', value: dataUser});
       console.log(res);
     })
     .catch(err => {

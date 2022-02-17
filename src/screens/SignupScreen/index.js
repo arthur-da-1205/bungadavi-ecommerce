@@ -44,7 +44,7 @@ const SignupScreen = ({navigation}) => {
           />
           <Space height={8} />
           <InputField
-            iconName="account-outline"
+            iconName="card-account-details-outline"
             placeholder="Full Name"
             value={form.fullname}
             onChangeText={value => setForm('fullname', value)}
@@ -56,14 +56,14 @@ const SignupScreen = ({navigation}) => {
             value={form.email}
             onChangeText={value => setForm('email', value)}
           />
-          <Space height={16} />
+          <Space height={8} />
           <InputField
             iconName="phone-outline"
             placeholder="Your Phone Number"
             value={form.phone}
             onChangeText={value => setForm('phone', value)}
           />
-          <Space height={16} />
+          <Space height={8} />
           <InputField
             iconName="lock-outline"
             placeholder="Password"
@@ -72,7 +72,7 @@ const SignupScreen = ({navigation}) => {
             secureTextEntry
           />
 
-          <Space height={16} />
+          <Space height={30} />
           <Button
             labelBtn="Sign Up"
             btnColor={COLORS.primary2}

@@ -22,9 +22,9 @@ const styles = StyleSheet.create({
   labelText: {
     fontFamily: 'Poppins-Regular',
     color: COLORS.gray,
-    fontSize: 14,
+    fontSize: 16,
     flex: 2,
-    marginLeft: 12,
+    marginLeft: 16,
   },
   textField: {
     color: COLORS.gray,
@@ -33,6 +33,6 @@ const styles = StyleSheet.create({
     borderColor: COLORS.gray,
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 4,
+    paddingHorizontal: 10,
   },
 });

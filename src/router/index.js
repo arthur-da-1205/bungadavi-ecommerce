@@ -9,6 +9,7 @@ import {
   ForgotPasswordScreen,
   Home,
   OrderSummaryScreen,
+  OTPScreen,
   SigninScreen,
   SignupScreen,
   SnapPaymentScreen,
@@ -70,6 +71,13 @@ const Router = () => {
         name="SigninScreen"
         component={SigninScreen}
         options={{headerShown: false}}
+      />
+      <RouterStack.Screen
+        name="OTPScreen"
+        component={OTPScreen}
+        options={{
+          title: 'Input OTP',
+        }}
       />
       <RouterStack.Screen
         name="SignupScreen"
