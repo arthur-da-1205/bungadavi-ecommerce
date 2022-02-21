@@ -5,6 +5,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {
   Account,
   Cart,
+  CategoryScreen,
   DetailProductScreen,
   ForgotPasswordScreen,
   Home,
@@ -112,6 +113,11 @@ const Router = () => {
           title: 'Order Summary Screen',
           headerTintColor: COLORS.primary2,
         }}
+      />
+      <RouterStack.Screen
+        name="CategoryScreen"
+        component={CategoryScreen}
+        options={{headerShown: false}}
       />
       <RouterStack.Screen
         name="SnapPaymentScreen"

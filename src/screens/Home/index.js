@@ -10,22 +10,35 @@ import {
 } from '../../components';
 import {COLORS} from '../../../constant';
 import {useDispatch, useSelector} from 'react-redux';
-import {getAllProducts} from '../../redux/action';
+import {getAllCategories, getAllProducts} from '../../redux/action';
 
 const Home = ({navigation}) => {
   const dispatch = useDispatch();
-  // const {products} = useSelector(state => state.allProductReducer);
-  const {products} = useSelector(state => state.allProductsReducer);
+  const {allProductsReducer, allCategoriesReducer} = useSelector(
+    state => state,
+  );
 
   useEffect(() => {
     dispatch(getAllProducts());
   }, [dispatch]);
+  useEffect(() => {
+    dispatch(getAllCategories());
+  }, [dispatch]);
 
-  console.log('products', products);
+  console.log('products', allProductsReducer.products);
+  console.log('categories', allCategoriesReducer.categories);
 
   const renderCategory = itemData => {
     const data = itemData.item;
-    return <CategoryGridTile name={data.name} color={data.color} />;
+    return (
+      <CategoryGridTile
+        name={data.name_en}
+        color={data.color}
+        onSelect={() => {
+          navigation.navigate('CategoryScreen', data);
+        }}
+      />
+    );
   };
 
   const renderNewProduct = itemData => {
@@ -35,8 +48,8 @@ const Home = ({navigation}) => {
     return (
       <ProductCard
         name={dataProducts.name_product}
-        image={dataProducts.image_main_product}
-        price={dataProducts.price}
+        // image={dataProducts.image_main_product}
+        // price={dataProducts.price}
         onPress={() => {
           navigation.navigate('DetailProductScreen', dataProducts);
         }}
@@ -75,7 +88,7 @@ const Home = ({navigation}) => {
           <Space height={8} />
           <FlatList
             keyExtractor={(item, index) => item.id}
-            data={products}
+            data={allProductsReducer.products}
             renderItem={renderNewProduct}
             numColumns={2}
             initialNumToRender={3}

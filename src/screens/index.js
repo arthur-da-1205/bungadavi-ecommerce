@@ -9,6 +9,7 @@ import DetailProductScreen from './DetailProductScreen';
 import OrderSummaryScreen from './OrderSummaryScreen';
 import SnapPaymentScreen from './SnapPayment';
 import OTPScreen from './OTPScreen';
+import CategoryScreen from './CategoryScreen';
 
 export {
   SigninScreen,
@@ -22,4 +23,5 @@ export {
   OrderSummaryScreen,
   SnapPaymentScreen,
   OTPScreen,
+  CategoryScreen,
 };
