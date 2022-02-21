@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {View, Text, SafeAreaView, StyleSheet, FlatList} from 'react-native';
 
 import {dummyDataCategory, dummyNewProduct} from '../../dummy/dataDummy';
@@ -9,24 +9,36 @@ import {
   Space,
 } from '../../components';
 import {COLORS} from '../../../constant';
+import {useDispatch, useSelector} from 'react-redux';
+import {getAllProducts} from '../../redux/action';
 
 const Home = ({navigation}) => {
+  const dispatch = useDispatch();
+  // const {products} = useSelector(state => state.allProductReducer);
+  const {products} = useSelector(state => state.allProductsReducer);
+
+  useEffect(() => {
+    dispatch(getAllProducts());
+  }, [dispatch]);
+
+  console.log('products', products);
+
   const renderCategory = itemData => {
     const data = itemData.item;
     return <CategoryGridTile name={data.name} color={data.color} />;
   };
 
   const renderNewProduct = itemData => {
-    const data = itemData.item;
-    console.log(data);
+    const dataProducts = itemData.item;
+    // console.log('data', data);
     <Space height={10} />;
     return (
       <ProductCard
-        name={data.name}
-        image={data.img}
-        price={data.price}
+        name={dataProducts.name_product}
+        image={dataProducts.image_main_product}
+        price={dataProducts.price}
         onPress={() => {
-          navigation.navigate('DetailProductScreen', data);
+          navigation.navigate('DetailProductScreen', dataProducts);
         }}
       />
     );
@@ -63,9 +75,10 @@ const Home = ({navigation}) => {
           <Space height={8} />
           <FlatList
             keyExtractor={(item, index) => item.id}
-            data={dummyNewProduct}
+            data={products}
             renderItem={renderNewProduct}
             numColumns={2}
+            initialNumToRender={3}
             // horizontal
           />
         </View>
