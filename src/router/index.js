@@ -17,6 +17,7 @@ import {
 } from '../screens';
 import {BottomNavigator} from '../components';
 import {COLORS} from '../../constant';
+import SplashScreen from '../screens/SplashScreen';
 
 const RouterStack = createNativeStackNavigator();
 const BottomTab = createBottomTabNavigator();
@@ -67,6 +68,11 @@ const MainApp = () => {
 const Router = () => {
   return (
     <RouterStack.Navigator>
+      <RouterStack.Screen
+        name="SplashScreen"
+        component={SplashScreen}
+        options={{headerShown: false}}
+      />
       <RouterStack.Screen
         name="SigninScreen"
         component={SigninScreen}

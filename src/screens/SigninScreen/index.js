@@ -2,11 +2,28 @@ import React from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {useDispatch} from 'react-redux';
 import {COLORS} from '../../../constant';
 import {Logo} from '../../assets';
 import {Button, InputField, Space} from '../../components';
+import {signinAction} from '../../redux/action';
+import {useForm} from '../../utils';
 
 const SigninScreen = ({navigation}) => {
+  const [form, setForm] = useForm({
+    email: '',
+    password: '',
+    expiredToken: '99h',
+    expiration_otp: 20,
+  });
+
+  const dispatch = useDispatch();
+  //TODO: Login action
+  const onLogin = () => {
+    console.log(form);
+    dispatch(signinAction(form, navigation));
+  };
+
   return (
     <View style={styles.mainContainer}>
       <KeyboardAwareScrollView showsVerticalScrollIndicator={false}>
@@ -21,31 +38,27 @@ const SigninScreen = ({navigation}) => {
         </View>
         <Space height={50} />
         <View style={styles.inputContainer}>
-          <InputField iconName="email-outline" placeholder="Your email" />
+          <InputField
+            iconName="email-outline"
+            placeholder="Your email"
+            value={form.email}
+            onChangeText={value => setForm('email', value)}
+          />
           <Space height={25} />
-          <InputField iconName="lock-outline" placeholder="Password" />
+          <InputField
+            iconName="lock-outline"
+            placeholder="Password"
+            value={form.password}
+            onChangeText={value => setForm('password', value)}
+            secureTextEntry
+          />
           <Space height={50} />
           <Button
             labelBtn="Sign In"
             btnColor={COLORS.primary2}
-            onPress={() => {
-              navigation.navigate('OTPScreen');
-            }}
+            onPress={onLogin}
           />
         </View>
-        <Space height={30} />
-        {/* <View style={styles.textOR}>
-          <Text>OR</Text>
-        </View> */}
-        <Space height={30} />
-        {/* <View style={styles.googleBtn}>
-          <Button
-            image={icGoogle}
-            labelBtn="Sign In with Google"
-            btnColor={COLORS.white}
-            textColor={COLORS.black}
-          />
-        </View> */}
         <Space height={50} />
         <View style={styles.forgotContainer}>
           <TouchableOpacity

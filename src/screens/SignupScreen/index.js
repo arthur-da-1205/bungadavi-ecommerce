@@ -7,7 +7,7 @@ import {useDispatch} from 'react-redux';
 import {COLORS} from '../../../constant';
 import {Button, InputField, Space} from '../../components';
 import {registerAction} from '../../redux/action';
-import {useForm} from '../../utils';
+import {toastMessage, useForm} from '../../utils';
 
 const SignupScreen = ({navigation}) => {
   const [form, setForm] = useForm({
@@ -17,12 +17,19 @@ const SignupScreen = ({navigation}) => {
     phone: '',
     password: '',
   });
+  const isFormValid = obj => {
+    return Object.values(obj).every(val => val.trim());
+  };
 
   const dispatch = useDispatch();
-
+  //TODO: Register action
   const onRegister = () => {
-    console.log('form:', form);
-    dispatch(registerAction(form, navigation));
+    if (!isFormValid(form)) {
+      toastMessage('All Fields Must be Filled', 'danger');
+    } else {
+      console.log('form:', form);
+      dispatch(registerAction(form, navigation));
+    }
   };
 
   return (
@@ -85,7 +92,10 @@ const SignupScreen = ({navigation}) => {
             Already have account? {''}
             {''}{' '}
           </Text>
-          <TouchableOpacity onPress={onRegister}>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('SigninScreen');
+            }}>
             <Text style={styles.sigInText}>Sign In</Text>
           </TouchableOpacity>
         </View>

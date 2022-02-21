@@ -1,12 +1,20 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import React from 'react';
 import {View, Text, Image, StyleSheet, Dimensions} from 'react-native';
+
 import {COLORS} from '../../../constant';
 import {profileDummy} from '../../assets/dummy';
 import {Button, ListMenu, Space} from '../../components';
 
 const heightScreen = Dimensions.get('screen').height;
 
-const Account = () => {
+const Account = ({navigation}) => {
+  const handleSginOut = () => {
+    AsyncStorage.removeItem('TOKEN').then(() => {
+      navigation.reset({index: 0, routes: [{name: 'SigninScreen'}]});
+    });
+  };
+
   return (
     <View style={styles.pageContainer}>
       <View style={styles.photoContainer}>
@@ -26,7 +34,11 @@ const Account = () => {
         <ListMenu label="Change My Password" iconName="shield-account" />
       </View>
       <View style={styles.btnContainer}>
-        <Button labelBtn="Sign Out" btnColor={COLORS.primary2} />
+        <Button
+          labelBtn="Sign Out"
+          btnColor={COLORS.primary2}
+          onPress={handleSginOut}
+        />
       </View>
     </View>
   );

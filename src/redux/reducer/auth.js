@@ -23,7 +23,7 @@ export const registerReducer = (state = initStateRegister, action) => {
 const initStateSignin = {
   email: '',
   phone: '',
-  expiredToken: '60000m',
+  expiredToken: '9999h',
   expiration_otp: '15',
 };
 
@@ -35,6 +35,24 @@ export const signinReducer = (state = initStateSignin, action) => {
       passsword: action.value.passsword,
       expiredToken: action.value.expiredToken,
       expiration_otp: action.value.expiration_otp,
+    };
+  }
+  return state;
+};
+
+const initVerifyOTP = {
+  user_id: '',
+  verified: '',
+  otp_code: '',
+};
+
+export const otpReducer = (state = initVerifyOTP, action) => {
+  if (action.type === 'SET_OTP') {
+    return {
+      ...state,
+      user_id: action.value.user_id,
+      verified: action.value.verified,
+      otp_code: action.value.otp_code,
     };
   }
   return state;
