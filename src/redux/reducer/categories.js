@@ -25,3 +25,17 @@ export const allSubcategoriesReducer = (state = initSubcategories, action) => {
   }
   return state;
 };
+
+const initProductBySubcat = {
+  productBySubcat: [],
+};
+
+export const productBySubcatReducer = (state = initProductBySubcat, action) => {
+  if (action.type === 'SET_PRODUCT_BY_SUBCATEGORY') {
+    return {
+      ...state,
+      productBySubcat: action.value,
+    };
+  }
+  return state;
+};

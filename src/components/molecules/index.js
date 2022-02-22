@@ -7,6 +7,7 @@ import Counter from './Counter';
 import ItemProductCard from './ItemProductCard';
 import ItemValue from './ItemValue';
 import LoadingAnimation from './LoadingAnimation';
+import SubcategoriesTile from './SubcategoriesTile';
 
 export {
   BottomNavigator,
@@ -18,4 +19,5 @@ export {
   ItemProductCard,
   ItemValue,
   LoadingAnimation,
+  SubcategoriesTile,
 };

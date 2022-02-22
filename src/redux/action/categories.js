@@ -28,3 +28,21 @@ export const getAllSubcategories = () => dispatch => {
       console.log(err.response);
     });
 };
+
+export const getProductBySubcat = (subcategoryId, bearerToken) => dispatch => {
+  dispatch(setLoading(true));
+  API_PRODUCT_HOST.get('/product_by_subcategory', {
+    params: {subcategory_id: subcategoryId},
+    headers: {
+      Authorization: bearerToken,
+    },
+  })
+    .then(res => {
+      dispatch(setLoading(false));
+      console.log(res.data);
+    })
+    .catch(err => {
+      dispatch(setLoading(false));
+      console.log(err.response);
+    });
+};

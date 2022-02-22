@@ -25,8 +25,8 @@ const Home = ({navigation}) => {
     dispatch(getAllCategories());
   }, [dispatch]);
 
-  console.log('products', allProductsReducer.products);
-  console.log('categories', allCategoriesReducer.categories);
+  // console.log('products', allProductsReducer.products);
+  // console.log('categories', allCategoriesReducer.categories);
 
   const renderCategory = itemData => {
     const data = itemData.item;

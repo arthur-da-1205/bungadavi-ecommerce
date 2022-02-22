@@ -117,7 +117,7 @@ const Router = () => {
       <RouterStack.Screen
         name="CategoryScreen"
         component={CategoryScreen}
-        options={{headerShown: false}}
+        options={({route}) => ({title: route.params.name_en})}
       />
       <RouterStack.Screen
         name="SnapPaymentScreen"
